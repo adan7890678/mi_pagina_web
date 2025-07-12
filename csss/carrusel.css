@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+ :root {
+  --card-width: 340px;
+  --card-gap: 5rem;
+  --primary-color:#0099ff;
+  --secondary-color: #3498db;
+  --text-color: #383333a9;
+  --light-color: #0026ff;
+} 
+
+.carousel-title {
+  background-color: #000000;
+  font-size: 2em;
+  font-weight: 700;
+  color: #0142a0;
+  /* margin: 1em 0 1em 0; */
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.carousel-container {
+  width: 100%;
+  /* max-width: 1400px; */
+  position: relative;
+  padding: 5rem 0;
+  overflow: hidden;
+  background-color: #0b1116;
+   /* background-image: url(../img/fondo\ infor.png);
+  background-size: cover;
+  background-repeat: no-repeat; */
+  /* background-position: center;  */
+   
+}
+
+.carousel-track {
+  display: flex;
+  gap: var(--card-gap);
+  width: max-content;
+  will-change: transform;
+}
+
+.card-container {
+  width: var(--card-width);
+  display: flex;
+  position: relative;
+  background:oklab(100% 0 -0.00011 / 0.815);
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.card-container:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 140px;
+  height: auto;
+  image-rendering: auto;
+  /* object-fit: cover; */
+  position: relative;
+  left: -40px;
+  filter: drop-shadow(1px 1px 20px #111111);
+  transition: all 0.3s ease;
+  
+  margin-right: -30px;
+  
+ 
+}
+
+.card-container:hover .card-image {
+  transform: translateX(-15px) rotate(-5deg);
+  filter: drop-shadow(1px 1px 20px #111111);
+  cursor: pointer;
+}
+
+.card-content {
+  flex: 1;
+  padding: 20px;
+  padding-left: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.date {
+  font-size: 10px;
+  color: #6c757d;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.content {
+  font-size: 12px;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 2px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-more::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--secondary-color), #fffb01);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+  color: var(--secondary-color);
+}
+
+.read-more:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Efecto de gradiente en los bordes */
+.carousel-container::before,
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(90deg, #000814 20%, rgba(245, 247, 250, 0) 100%);
+
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(270deg, #000814 20%, rgba(245, 247, 250, 0) 100%);
+
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  :root {
+    --card-width: 500px;
+    --card-gap: 6rem;
+  }
+
+  .card-image {
+    width: 150px;
+    left: -50px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .content {
+    font-size: 14px;
+  }
+
+  .read-more {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --card-width: 600px;
+    --card-gap: 6rem;
+  }
+
+  .card-image {
+    width: 180px;
+    left: -60px;
+  }
+
+  .card-content {
+    padding: 30px;
+    padding-left: 20px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .content {
+    font-size: 16px;
+  }
+
+  .read-more {
+    font-size: 14px;
+  }
+}
